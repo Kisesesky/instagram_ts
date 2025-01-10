@@ -15,7 +15,7 @@ this.addEventListener('DOMContentLoaded', ()=>{
     function getElementById<T extends HTMLElement>(id: string):T{
         const element = document.getElementById(id);
         if(!element){
-            throw new Error(`${id} element가 없어요`)
+            throw new Error(`${id} element is Noting`)
         }
         return element as T
     }
@@ -57,6 +57,15 @@ this.addEventListener('DOMContentLoaded', ()=>{
     }
 
     //profile index fuc
+    //profile interface
+    interface ProfileData {
+        id: string,
+        name: string,
+        website: string,
+        description: string
+    }
+
+
     //profile defalut value
     function loadDefalutValue(){
         modalIdElement.value = updateIdElement.textContent;
@@ -84,7 +93,7 @@ this.addEventListener('DOMContentLoaded', ()=>{
 
     //profile index local save
     function saveProfileToLocal() {
-        const profileData = {
+        const profileData:ProfileData = {
             id: modalIdElement.value,
             name: modalNameElement.value,
             website: modalWebsiteElemenet.value,

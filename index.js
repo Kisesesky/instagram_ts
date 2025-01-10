@@ -48,7 +48,6 @@ this.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('image', data);
         imageElement.src = data;
     }
-    //profile index fuc
     //profile defalut value
     function loadDefalutValue() {
         modalIdElement.value = updateIdElement.textContent;
