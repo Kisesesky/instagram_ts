@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNE-OHk_8a.png">
+    <title>Instagram</title>
+</head>
+<body>
+    <nav class="headernav">
+        <a class="navigation__logo" href="https://www.instagram.com/" target="_blank">
+            <img src="https://elice-contents.github.io/elice-instagram-clone/assets/instagram_logo.svg" alt="instagram_logo">
+        </a>
+        <ul class="navigation__lists">
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/home_icon.svg" alt="home_icon">홈
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/search_icon.svg" alt="search_icon">검색
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/explore_icon.svg" alt="explore_icon">탐색 탭
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/media_icon.svg" alt="media_icon">릴스
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/send_icon.svg" alt="send_icon">메시지
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/favorite_icon.svg" alt="favorite_icon">알림
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link" id="postBtn">
+                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/add_icon.svg" alt="add_icon">만들기
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/contact_icon.svg" alt="contact_icon">프로필
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="container__inner">
+            <main>
+                <section class="profile">
+                    <div class="profile__image">
+                        <img src="https://elice-contents.github.io/elice-instagram-clone/assets/default_profile.svg" id="profile-img">
+                    </div>
+                    <div class="profile__info">
+                        <div class="profile__first-block">
+                            <h2 class="profile__username" id="profile-id">name</h2>
+                            <button class="profile__button" id="update-profile-btn">프로필 편집</button>
+                            <button class="profile__button" id="story-btn">보관된 스토리 보기</button>
+                            <button class="profile__settings">
+                                <img src="https://elice-contents.github.io/elice-instagram-clone/assets/setting_icon.svg" alt="setting_icon">
+                            </button>
+                        </div>
+                        <ul class="profile__second-block">
+                            <li class="profile__quantity" id="profile-posts">게시물 <strong></strong></li>
+                            <li class="profile__quantity" id="profile-followers">팔로워 <strong></strong></li>
+                            <li class="profile__quantity" id="profile-follows">팔로우 <strong></strong></li>
+                        </ul>
+                        <div class="profile__third-block">
+                            <span class="profile__name" id="profile-name">이름</span>
+                            <p class="profile__description" id="profile-description">Hello, World!!!</p>
+                            <span class="profile__url">
+                                <img src="https://elice-contents.github.io/elice-instagram-clone/assets/link_icon.svg" alt="link_icon">
+                                <a href="https://github.com/Kisesesky" id="profile-website" target="_blank">https://github.com/Kisesesky</a>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="posts">
+                    <nav class="posts__navigation">
+                        <ul>
+                            <li class="posts__nav-item posts__nav-item--selected">
+                                <button>
+                                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/grid_icon.svg" alt="grid_icon">게시물
+                                </button>
+                            </li>
+                            <li class="posts__nav-item">
+                                <button>
+                                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/bookmark_icon.svg" alt="bookmark_icon">저장됨
+                                </button>
+                            </li>
+                            <li class="posts__nav-item">
+                                <button>
+                                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/contact_icon.svg" alt="contact_icon">태그됨
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="posts__gallery">
+                        <div class="posts_item">
+                            <div class="posts_img">
+                                <img src="https://elice-contents.github.io/elice-instagram-clone/assets/camera_icon.svg" alt="camera">
+                            </div>
+                            <h3>게시물 없음</h3>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <ul class="footer__links">
+                    <li><a href="#" class="footer__link">Meta</a></li>
+                    <li><a href="#" class="footer__link">소개</a></li>
+                    <li><a href="#" class="footer__link">블로그</a></li>
+                    <li><a href="#" class="footer__link">채용 정보</a></li>
+                    <li><a href="#" class="footer__link">도움말</a></li>
+                    <li><a href="#" class="footer__link">API</a></li>
+                    <li><a href="#" class="footer__link">개인정보처리방침</a></li>
+                    <li><a href="#" class="footer__link">약관</a></li>
+                    <li><a href="#" class="footer__link">위치</a></li>
+                    <li><a href="#" class="footer__link">Instagram Lite</a></li>
+                </ul>
+                <div class="footer__copyright">
+                    <span>
+                        <select name="language" id="footer-language">
+                            <option value="kor">KOR</option>
+                            <option value="eng">ENG</option>
+                            <option value="jp">JP</option>
+                            <option value="chn">CHN</option>
+                            <option value="frn">FRN</option>
+                        </select>
+                    </span>
+                    <span>&copy; 2024 Instagram from Meta</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <dialog id="uploadModal">
+        <form method="modal" id="uploadForm">
+            <header class="modal_header">
+                <h2>프로필편집</h2>
+                <button id="save">저장</button>
+            </header>
+            <div id="imgChange">
+                <img src="https://elice-contents.github.io/elice-instagram-clone/assets/default_profile.svg" alt="none" id="imagePreview">
+                <input id="upload" type="file" accept="image/*">
+                <div id="close">X</div>
+            </div>
+            <div id="modalid">
+                <label for="id"><h>인스타아이디</h></label>
+                <input id ="id" type="text">
+            </div>
+            <div id="modalname">
+                <label for="name"><h>이름</h></label>
+                <input id ="name" type="text">
+            </div>
+            <div id="modalwebsite">
+                <label for="website"><h>웹사이트</h></label>
+                <input id ="website" type="text">
+            </div>
+            <div id="modalprofileIdx">
+                <label for="profileIdx"><h>프로필 설명</h></label>
+                <input id ="profileIdx" type="text" row="8">
+            </div>
+        </form>
+    </dialog>
+    <dialog id="postModal">
+        <form method="modal" id="postForm">
+            <header class="postModal_header">
+                <p>새게시물만들기</p>
+                <button type="button" id="share">공유하기</button>
+            </header>
+            <div id="PostModalPage">
+                <img id="postImg" src="https://elice-contents.github.io/elice-instagram-clone/assets/media_icon.svg" alt="icon">
+                <p>사진을 선택하세요.</p>
+                <label id="postUploadBtn">컴퓨터에서 선택</label>
+                <input id="postUpload" type="file" accept="image/*">
+                <div id="close2">X</div>
+            </div>
+            <div id="postGet">
+                <img id="postImagePreview"src="" alt="">
+                <textarea id="postText" cols="30" rows="10" placeholder="여기에 내용을 입력하세요." ></textarea>
+            </div>
+
+        </form>
+
+    </dialog>
+    
+    <script src="index.js"></script>
+</body>
+</html>
