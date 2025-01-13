@@ -1,20 +1,17 @@
-var mainProfile = {
-    id: '???',
-    img: 'https://elice-contents.github.io/elice-instagram-clone/assets/default_profile.svg',
-    name: '???',
-    description: 'Hello, World!!!',
-    website: 'https://github.com/Kisesesky',
-    posts: '2',
-    followers: '2',
-    follows: '2'
-};
 this.addEventListener('DOMContentLoaded', function () {
     function getElementById(id) {
         var element = document.getElementById(id);
         if (!element) {
-            throw new Error("".concat(id, " element\uAC00 \uC5C6\uC5B4\uC694"));
+            throw new Error("".concat(id, " Element is Noting"));
         }
         return element;
+    }
+    function getElementsByClassName(className) {
+        var element = document.getElementsByClassName(className);
+        if (!element) {
+            throw new Error("".concat(className, " Element is Noting"));
+        }
+        return Array.from(element);
     }
     //upload element
     var uploadElement = getElementById('upload');
@@ -22,41 +19,54 @@ this.addEventListener('DOMContentLoaded', function () {
     var imagePreviewElement = getElementById('imagePreview');
     var uploadModalElement = getElementById('uploadModal');
     var updateElement = getElementById('update-profile-btn');
-    var saveElemnet = getElementById('save');
+    var saveElement = getElementById('save');
     var closeElement = getElementById('close');
     //modal element
     var modalIdElement = getElementById('id');
     var modalNameElement = getElementById('name');
-    var modalWebsiteElemenet = getElementById('website');
+    var modalWebsiteElement = getElementById('website');
     var modalProfileIdxElement = getElementById('profileIdx');
     //update element
     var updateIdElement = getElementById('profile-id');
     var updateNameElemnet = getElementById('profile-name');
     var updateDescriptionElement = getElementById('profile-description');
     var updateWebsiteElement = getElementById('profile-website');
+    //post element
+    var postBtnElement = getElementById('postBtn');
+    var postModalElement = getElementById('postModal');
+    var postUploadElement = getElementById('postUpload');
+    var postImgElement = getElementById('postImg');
+    var postPreviewImgElement = getElementById('postImagePreview');
+    var postTextElement = getElementById('postText');
+    var shareBtnElement = getElementById('share');
+    var postModalPageElement = getElementById('PostModalPage');
+    var postGalleryElement = getElementsByClassName('posts__gallery');
+    var postGetElement = getElementById('postGet');
+    var postUploadBtnElement = getElementById('postUploadBtn');
+    var close2Element = getElementById('close2');
     //profile img fuc
     //profile img local load
-    function loadImgToLocal() {
+    var loadImgToLocal = function () {
         var image = localStorage.getItem('image');
         if (image) {
             imageElement.src = image;
             imagePreviewElement.src = image;
         }
-    }
+    };
     //profile img local save
-    function saveImgToLocal(data) {
+    var saveImgToLocal = function (data) {
         localStorage.setItem('image', data);
         imageElement.src = data;
-    }
+    };
     //profile defalut value
-    function loadDefalutValue() {
+    var loadDefalutValue = function () {
         modalIdElement.value = updateIdElement.textContent;
         modalNameElement.value = updateNameElemnet.textContent;
-        modalWebsiteElemenet.value = updateWebsiteElement.textContent;
+        modalWebsiteElement.value = updateWebsiteElement.textContent;
         modalProfileIdxElement.value = updateDescriptionElement.textContent;
-    }
+    };
     //profile index local load
-    function loadProfileToLocal() {
+    var loadProfileToLocal = function () {
         var profileData = JSON.parse(localStorage.getItem('profileData'));
         if (profileData) {
             updateIdElement.textContent = profileData.id || "";
@@ -65,20 +75,20 @@ this.addEventListener('DOMContentLoaded', function () {
             updateDescriptionElement.textContent = profileData.description || "";
             modalIdElement.value = profileData.id || "";
             modalNameElement.value = profileData.name || "";
-            modalWebsiteElemenet.value = profileData.website || "";
+            modalWebsiteElement.value = profileData.website || "";
             modalProfileIdxElement.value = profileData.description || "";
         }
-    }
+    };
     //profile index local save
-    function saveProfileToLocal() {
+    var saveProfileToLocal = function () {
         var profileData = {
             id: modalIdElement.value,
             name: modalNameElement.value,
-            website: modalWebsiteElemenet.value,
+            website: modalWebsiteElement.value,
             description: modalProfileIdxElement.value
         };
         localStorage.setItem('profileData', JSON.stringify(profileData));
-    }
+    };
     //modal
     updateElement.addEventListener('click', function () {
         loadDefalutValue();
@@ -102,12 +112,12 @@ this.addEventListener('DOMContentLoaded', function () {
         }
     });
     //modal save
-    saveElemnet.addEventListener('click', function () {
+    saveElement.addEventListener('click', function () {
         saveImgToLocal(imagePreviewElement.src);
         saveProfileToLocal();
         uploadElement.close();
     });
-    //modal close
+    //profile modal close
     //esc close
     window.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
@@ -118,7 +128,66 @@ this.addEventListener('DOMContentLoaded', function () {
     closeElement.addEventListener('click', function () {
         uploadModalElement.close();
     });
+    //postModal
+    //post img local load
+    var postLoadImgToLocal = function () {
+        var image = localStorage.getItem('image');
+        if (image) {
+            postImgElement.src = image;
+            postPreviewImgElement.src = image;
+        }
+    };
+    //post img local save
+    var postSaveImgToLocal = function (data) {
+        localStorage.setItem('image', data);
+        postImgElement.src = data;
+    };
+    //post create
+    var createPost = function (image, text) {
+        var posts = JSON.parse(localStorage.getItem("posts")) || [];
+        var newPost = {
+            id: posts.length ? posts[posts.length - 1].id + 1 : 1,
+            image: image,
+            text: text,
+            likes: 0,
+            comments: 0
+        };
+        posts.push(newPost);
+        localStorage.setItem('posts', JSON.stringify(posts));
+    };
+    //postModal event
+    postBtnElement.addEventListener('click', function () {
+        var showModalopen = true;
+        if (showModalopen) {
+            postGetElement.style.display = 'none';
+            shareBtnElement.style.display = 'none';
+            postModalPageElement.style.display = 'block';
+            postModalElement.showModal();
+        }
+        else {
+            postGetElement.style.display = 'block';
+            shareBtnElement.style.display = 'block';
+            postModalPageElement.style.display = 'none';
+            postModalElement.close();
+        }
+    });
+    //postmodal label click -> postupload click
+    postUploadElement.addEventListener('click', function () {
+        postUploadElement.click();
+    });
+    //postmodal close
+    //esc close
+    window.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            postModalElement.close();
+        }
+    });
+    //button close
+    close2Element.addEventListener('click', function () {
+        postModalElement.close();
+    });
     //load
     loadImgToLocal();
     loadProfileToLocal();
+    postLoadImgToLocal();
 });
